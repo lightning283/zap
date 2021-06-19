@@ -6,7 +6,7 @@ import time
 try:
     if sys.argv[1] == "update":
         os.system("sudo rm -rf /home/zap && cd /home/ && sudo git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
-    if sys.argv[1] == "update pkgs txt":
+    if sys.argv[1] == "update txts":
         os.system("sudo rm -rf /home/zap/assets/pkgs.txt")
         print("Refeshing Links...")
         time.sleep(1)
