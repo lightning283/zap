@@ -33,6 +33,6 @@ try:
     if sys.argv[1] == "-h" or sys.argv[1] == "help":
         os.system("lolcat assets/help.md")
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v1.3")
+        print("v1.4")
 except IndexError:
     print("Wrong Input Please Try Again.. Or 'zap -h' For Help.")
