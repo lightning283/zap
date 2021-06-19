@@ -11,7 +11,7 @@ try:
             print("Refeshing Links...")
             time.sleep(1)
             print("Cloning Repo..")
-            os.system("cd /home/zap/ && gitclone -b pkgs https://github.com/LIGHTNING283/zap.git pkgs && cp pkgs/pkgs.txt ../assets/")
+            os.system("cd /home/zap/ && git clone -b pkgs https://github.com/LIGHTNING283/zap.git pkgs && cp pkgs/pkgs.txt ../assets/")
 
     if sys.argv[1] == "linux":
         print("yay linux")
@@ -25,6 +25,6 @@ try:
         print("wtf android")
         
     if sys.argv[1] == "pkgs":
-        os.system(f"cat assets/pkgs.txt")
+        os.system("cat assets/pkgs.txt")
 except IndexError:
     print("Wrong Input Please Try Again.. Or 'zap -h' For Help.")
