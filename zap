@@ -12,6 +12,7 @@ try:
         usr_input = input("Enter Choice: ")
         if usr_input == "1":
             os.system("sudo rm -rf /home/zap && cd /home/ && sudo git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
+            os.system("sudo chmod +x /bin/zap")
         if usr_input == "2":
             os.system("sudo rm -rf /home/zap/assets/pkgs.txt")
             time.sleep(1)
