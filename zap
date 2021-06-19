@@ -18,9 +18,6 @@ try:
         if sys.argv[2] == "teams":
             print("installing teams")
 
-    if sys.argv[1] == "windows":
-        print("pff windows")
-
     if sys.argv[1] == "android":
         print("wtf android")
         
