@@ -22,6 +22,7 @@ then
     ln -s /system/bin/python /bin/
     cp android-support/python/pylib/* /gearlock/lib/
     cp -r android-support/python/pylib /data/
+    cp /system/ghome/gearboot/init/dmInit /system/ghome/gearboot/init/dmInit.bak
     echo "cp /data/pylib/* /gearlock/lib/" >> /system/ghome/gearboot/init/dmInit
 
 
