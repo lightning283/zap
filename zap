@@ -11,7 +11,7 @@ try:
             print("Refeshing Links...")
             time.sleep(1)
             print("Cloning Repo..")
-            os.system("cd /home/zap/ && git clone -b pkgs https://github.com/LIGHTNING283/zap.git pkgs && cp pkgs/pkgs.txt ../assets/")
+            os.system("cd /home/zap/ && git clone --single-branch --branch pkgs https://github.com/LIGHTNING283/zap.git pkgs && cp pkgs/pkgs.txt ../assets/")
 
     if sys.argv[1] == "linux":
         print("yay linux")
