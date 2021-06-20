@@ -28,11 +28,12 @@ try:
         print("wtf android")
         
     if sys.argv[1] == "pkgs":
-        os.system("lolcat assets/pkgs.md")
+        os.system("lolcat -a /home/zap/assets/pkgs.md")
 
     if sys.argv[1] == "-h" or sys.argv[1] == "help":
-        os.system("lolcat assets/help.md")
+        os.system("lolcat -a /home/zap/assets/help.md")
+
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v1.6")
+        print("v1.7")
 except IndexError:
     print("Wrong Input Please Try Again.. Or 'zap -h' For Help.")
