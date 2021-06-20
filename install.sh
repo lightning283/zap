@@ -6,8 +6,13 @@ sudo ln -s /home/zap/zap /bin/
 echo "Done! Zap Installed/Updated Successfully"
 if [[ -d /sdcard/ ]]
 then
-    echo "Android Detected,Installing Support Layer"
+    echo "Android Detected,Installing git"
+    
+    echo "Android Detected,Downloading Support Layer"
+    cd /home/zap/assets/ && sudo git clone --single-branch --branch android-support https://github.com/LIGHTNING283/zap.git android-support
+    echo "Installing Support Layer"
     mkdir /bin
+    export PATH="/bin/:$PATH"
     ln -s /gearlock/bin/bash /bin/
     sleep 2
     echo "Python 3.8 Taken From Old Gearlock Thanks To Axon"
@@ -16,7 +21,7 @@ then
     sleep 1
     echo "Git Taken From Termux"
     sleep 1
-    cp android-support/lolcat /system/bin/
+    cp android-support/lolcat /bin/
     cp -r android-support/python/python3.8 /system/lib/
     cp android-support/python/pybin/* /system/bin/
     ln -s /system/bin/python /bin/
