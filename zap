@@ -17,7 +17,7 @@ try:
             os.system("sudo rm -rf /home/zap/assets/pkgs.md && sudo rm -rf /home/zap/assets/pkgs.md")
             time.sleep(1)
             print("Cloning Repo..")
-            os.system("cd /home/zap/ && sudo git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && sudo cp -r pkgs.txt ../assets/")
+            os.system("cd /home/zap/ && sudo git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && sudo cp -r pkgs.md ../assets/ && sudo cp -r help.md ../assets/")
         else:
             print("Wrong Input")
 
