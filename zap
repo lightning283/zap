@@ -34,6 +34,6 @@ try:
         os.system("lolcat -a /home/zap/assets/help.md")
 
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v1.7")
+        print("v1.8")
 except IndexError:
     print("Wrong Input Please Try Again.. Or 'zap -h' For Help.")
