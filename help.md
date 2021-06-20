@@ -4,6 +4,7 @@
 -  zap help (Shows this Message)
 -  zap update (Updates The MarkDown Files And The Whole Package Manager Itself)
 -  zap pkgs (List The Downloadable Applications)
+-  zap -v or zap version (shows version)
 # Usage
 -  zap + package name
 For Example
