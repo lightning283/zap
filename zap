@@ -14,10 +14,10 @@ try:
             os.system("sudo rm -rf /home/zap && cd /home/ && sudo git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
             os.system("sudo chmod +x /bin/zap")
         if usr_input == "2":
-            os.system("sudo rm -rf /home/zap/assets/pkgs.txt")
+            os.system("sudo rm -rf /home/zap/assets/pkgs.md && sudo rm -rf /home/zap/assets/pkgs.md")
             time.sleep(1)
             print("Cloning Repo..")
-            os.system("cd /home/zap/ && sudo git clone --single-branch --branch pkgs https://github.com/LIGHTNING283/zap.git pkgs && sudo cp -r pkgs.txt ../assets/")
+            os.system("cd /home/zap/ && sudo git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && sudo cp -r pkgs.txt ../assets/")
         else:
             print("Wrong Input")
 
