@@ -2,6 +2,7 @@
 import os
 import sys
 import time
+from assets.utils import platform
 
 try:
     if sys.argv[1] == "update":
@@ -22,19 +23,31 @@ try:
             print("Wrong Input")
 
     if sys.argv[1] == "install":
-        if sys.argv[2] == "pydown":
-            os.system("cd /home/zap/packages/ && sudo git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && sudo bash install.sh")
+        if platform == "linux":
+            print("Platform ==> "+ platform)
+            if sys.argv[2] == "pydown":
+                os.system("cd /home/zap/packages/ && sudo git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && sudo bash install.sh")
+        elif platform == "android":
+            print("Platform ==> "+ platform)
+            if sys.argv[2] == "pydown":
+                os.system("cd /system/zap/packages/ && git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && sudo bash install.sh")
         
     if sys.argv[1] == "uninstall":
-        if sys.argv[2] == "pydown":
-            os.system("sudo bash /home/zap/packages/pydown/uninstall.sh")    
+        if platform == "linux":
+            print("Platform ==> "+ platform)
+            if sys.argv[2] == "pydown":
+                os.system("sudo bash /home/zap/packages/pydown/uninstall.sh")
+        elif platform == "android":
+            print("Platform ==> "+ platform)
+            if sys.argv[2] == "pydown":
+                os.system("bash /system/zap/packages/pydown/uninstall.sh")
 #####################################################################
     if sys.argv[1] == "pkgs":
         os.system("lolcat -a /home/zap/assets/pkgs.md")
     if sys.argv[1] == "-h" or sys.argv[1] == "help":
         os.system("lolcat -a /home/zap/assets/help.md")
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v1.9")
+        print("v2.0")
 #####################################################################
 except IndexError:
     print("Wrong Input Please Try Again.. Or 'zap -h' For Help.")

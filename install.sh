@@ -6,7 +6,7 @@ echo "Standalone Python Written Lolcat Thanks To Tehmaze"
 sleep 1
 echo "Git Taken From Termux"
 #########################################################################
-if [[ -d /dev/ ]]
+if [[ -d /usr/ ]]
 then
 echo "Linux Installation"
 sudo cp -r ../zap /home/
