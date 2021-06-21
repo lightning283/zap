@@ -1,22 +1,24 @@
 #!/bin/bash
-sleep 2
-echo "Python 3.8 Taken From Old Gearlock Thanks To Axon"
-sleep 1
 echo "Standalone Python Written Lolcat Thanks To Tehmaze"
 sleep 1
-echo "Git Taken From Termux"
 #########################################################################
 if [[ -d /usr/ ]]
 then
 echo "Linux Installation"
-sudo cp -r ../zap /home/
-sudo chmod +x /home/zap/zap
-sudo ln -s /home/zap/zap /bin/
+mkdir ~/.zap
+cp -r ../zap ~/.zap/
+chmod +x ~/zap/zap
+sudo ln -s ~/zap/zap /bin/
 echo "Done! Zap Installed/Updated Successfully"
 fi
 ##########################################################################
 if [[ -d /sdcard/ ]] #sdcard dir is most common in android so i used it to check if the device is android.
 then
+echo "Python 3.8 Taken From Old Gearlock Thanks To Axon"
+sleep 1
+echo "Standalone Python Written Lolcat Thanks To Tehmaze"
+sleep 1
+echo "Git Taken From Termux"
 mkdir /bin/
 export PATH="/bin/:$PATH"
 cp -r ../zap /system/

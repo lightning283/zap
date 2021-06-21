@@ -1,6 +1,11 @@
+if [[ -d "/usr/" ]]
+then
 sudo rm -rf /bin/zap
-sudo rm -rf /home/zap
-if [[ -d /sdcard/ ]]
+rm -rf ~/.zap
+echo "Removed Succesfully"
+fi
+################################################################
+if [[ -d "/sdcard/" ]]
 then
 echo "Removing Bin"
 rm -rf /bin
