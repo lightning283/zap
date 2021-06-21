@@ -7,6 +7,8 @@ fi
 ################################################################
 if [[ -d "/sdcard/" ]]
 then
+echo "Removing Home"
+rm -rf /system/zap
 echo "Removing Bin"
 rm -rf /bin
 echo "Removing Python"

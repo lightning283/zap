@@ -24,8 +24,7 @@ cp -r ../zap /system/
 cp /system/ghome/gearboot/init/dmInit /system/zap/assets/
 ###############################################################################
 echo "Android Detected,Downloading Git"
-cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz?dl=1
-if [[ -f "/data/data/com.termux.tar.gz"]]
+if [[ -f /data/data/com.termux.tar.gz ]]
 then
 cd /data/data/ && tar -xzvf com.termux.tar.gz
 else
