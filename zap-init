@@ -1,0 +1,10 @@
+#!/gearlock/bin/bash
+echo "Placing Python Deps"
+cp /system/zap/assets/android-support/python/pylib/* /gearlock/bin/
+echo "Done!"
+if [[ ! -d "/data/data/com.termux/" ]]
+then
+echo "Unzipping Git Deps In 3"
+timeout 3 cd /data/data/ && tar -xzvf com.termux.tar.gz
+echo "Done!"
+fi
