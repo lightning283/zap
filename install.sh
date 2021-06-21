@@ -27,8 +27,10 @@ echo "cp /data/pylib/* /gearlock/lib/" >> /system/ghome/gearboot/init/dmInit
 echo "Android Detected,Downloading Git"
 cd /home/zap/assets/
 axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz?dl=1
+tar -czvf com.termux.tar.gz
 echo "Android Detected,Installing git"
 ln -s /home/zap/assets/com.termux/files/usr/libexec/git-core/git /bin/
+ln -s /home/zap/assets/com.termux/files/usr/bin/fish /bin/
 chmod -R +x /bin/
 echo "Android Detected,Downloading Support Layer"
 cd /home/zap/assets/
