@@ -1,7 +1,7 @@
 if [[ -d "/usr/" ]]
 then
 sudo rm -rf /bin/zap
-rm -rf ~/.zap
+rm -rf ~/zap
 echo "Removed Succesfully"
 fi
 ################################################################

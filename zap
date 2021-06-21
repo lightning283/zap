@@ -12,13 +12,14 @@ try:
         """)
         usr_input = input("Enter Choice: ")
         if usr_input == "1":
-            os.system("sudo rm -rf /home/zap && cd /home/ && sudo git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
-            os.system("sudo chmod +x /bin/zap")
-        if usr_input == "2":
-            os.system("sudo rm -rf /home/zap/assets/*.md")
+            os.system("rm -rf ~/zap && cd ~/ && git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
+            os.system("chmod +x ~/zap/zap")
+            os.system("sudo ln -s ~/zap/zap /bin/")
+        elif usr_input == "2":
+            os.system("sudo rm -rf ~/zap/assets/*.md")
             time.sleep(1)
             print("Cloning Repo..")
-            os.system("cd /home/zap/ && sudo git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && cd md-files && sudo cp -r *.md ../assets/")
+            os.system("cd ~/zap/ && git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && cd md-files && cp -r *.md ../assets/")
         else:
             print("Wrong Input")
 
@@ -26,7 +27,7 @@ try:
         if platform == "linux":
             print("Platform ==> "+ platform)
             if sys.argv[2] == "pydown":
-                os.system("cd /home/zap/packages/ && sudo git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && sudo bash install.sh")
+                os.system("cd ~/zap/packages/ && git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && bash install.sh")
         elif platform == "android":
             print("Platform ==> "+ platform)
             if sys.argv[2] == "pydown":
@@ -36,7 +37,7 @@ try:
         if platform == "linux":
             print("Platform ==> "+ platform)
             if sys.argv[2] == "pydown":
-                os.system("sudo bash /home/zap/packages/pydown/uninstall.sh")
+                os.system("bash ~/zap/packages/pydown/uninstall.sh")
         elif platform == "android":
             print("Platform ==> "+ platform)
             if sys.argv[2] == "pydown":

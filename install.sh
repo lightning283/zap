@@ -5,8 +5,7 @@ sleep 1
 if [[ -d /usr/ ]]
 then
 echo "Linux Installation"
-mkdir ~/.zap
-cp -r ../zap ~/.zap/
+cp -r ../zap ~/
 chmod +x ~/zap/zap
 sudo ln -s ~/zap/zap /bin/
 echo "Done! Zap Installed/Updated Successfully"
