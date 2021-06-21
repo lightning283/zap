@@ -22,7 +22,6 @@ mkdir /bin/
 export PATH="/bin/:$PATH"
 cp -r ../zap /system/
 cp /system/ghome/gearboot/init/dmInit /system/zap/assets/
-echo "cp /data/pylib/* /gearlock/lib/" >> /system/ghome/gearboot/init/zap_init
 ###############################################################################
 echo "Android Detected,Downloading Git"
 cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz?dl=1
@@ -42,5 +41,7 @@ cd /system/zap/assets/ && cp android-support/python/pybin/* /system/bin/
 ln -s /system/bin/python /bin/
 cd /system/zap/assets/ && cp android-support/python/pylib/* /gearlock/lib/
 cd /system/zap/assets/ && cp -r android-support/python/pylib /data/
+cd /system/zap/assets/ && cp android-support/zap-init /system/ghome/gearboot/init/
+chmod +x /system/ghome/gearboot/init/zap-init
 echo "Sucessfully Installed!!"
 fi
