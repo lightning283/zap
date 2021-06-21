@@ -11,6 +11,7 @@ echo ""
 if [[ -d /sdcard/ ]]
 then
 mkdir /bin/
+export PATH="/bin/:$PATH"
 fi
 
 sudo mkdir -p /home/
@@ -26,14 +27,13 @@ echo "cp /data/pylib/* /gearlock/lib/" >> /system/ghome/gearboot/init/dmInit
 
 echo "Android Detected,Installing git"
 cp -r /home/zap/assets/com.termux /data/data/
-chmod +x /data/data/com.termux/files/usr/bin/*
-chmod 777 /data/data/com.termux/files/usr/lib/*
-export PATH="/data/data/com.termux/files/usr/bin/:$PATH"
-
+chmod -R 777 /data/data/com.termux/files/usr/
+chmod -R +x /data/data/com.termux/files/usr/
+ln /data/data/com.termux/files/usr/libexec/git-core/git /bin/
+chmod -R +x /bin/
 echo "Android Detected,Downloading Support Layer"
 cd /home/zap/assets/ && sudo git clone --single-branch --branch android-support https://github.com/LIGHTNING283/zap.git android-support
 echo "Installing Support Layer"
-export PATH="/bin/:$PATH"
 cd /home/zap/assets/
 ln -s /gearlock/bin/bash /bin/
 cp android-support/lolcat /bin/
