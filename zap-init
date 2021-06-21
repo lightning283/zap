@@ -2,6 +2,15 @@
 echo "Placing Python Deps"
 cp /system/zap/assets/android-support/python/pylib/* /gearlock/bin/
 echo "Done!"
+echo "Linking Files"
+mkdir /bin/
+export PATH="/bin/:$PATH"
+chmod -R +x /bin/
+ln -s /data/data/com.termux/files/usr/libexec/git-core/git /bin/
+ln -s /data/data/com.termux/files/usr/bin/fish /bin/
+ln -s /system/bin/python /bin/
+ln -s /gearlock/bin/bash /bin/
+
 if [[ ! -d "/data/data/com.termux/" ]]
 then
 echo "Unzipping Git Deps In 3"
