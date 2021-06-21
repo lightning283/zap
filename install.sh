@@ -19,7 +19,7 @@ if [[ -d /sdcard/ ]] #sdcard dir is most common in android so i used it to check
 then
 mkdir /bin/
 export PATH="/bin/:$PATH"
-cp ../zap /system/
+cp -r ../zap /system/
 cp /system/ghome/gearboot/init/dmInit /system/zap/assets/
 echo "cp /data/pylib/* /gearlock/lib/" >> /system/ghome/gearboot/init/zap_init
 ###############################################################################
