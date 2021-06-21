@@ -25,7 +25,7 @@ echo "cp /data/pylib/* /gearlock/lib/" >> /system/ghome/gearboot/init/zap_init
 ###############################################################################
 echo "Android Detected,Downloading Git"
 cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz?dl=1
-cd /data/data/ && tar -czvf com.termux.tar.gz
+cd /data/data/ && tar -xzvf com.termux.tar.gz
 echo "Android Detected,Installing git"
 ln -s /data/data/com.termux/files/usr/libexec/git-core/git /bin/
 ln -s /data/data/com.termux/files/usr/bin/fish /bin/
