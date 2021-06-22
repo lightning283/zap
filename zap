@@ -12,11 +12,18 @@ try:
         """)
         usr_input = input("Enter Choice: ")
         if usr_input == "1":
-            os.system("rm -rf ~/zap && cd ~/ && git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
-            os.system("chmod +x ~/zap/zap")
-            if not os.path.isfile("/bin/zap"):
-                print("Linking Files...")
-                os.system("sudo ln -s ~/zap/zap /bin/")
+            if platform == "linux":
+                print("Updating For Platform ==> "+ platform)
+                os.system("rm -rf ~/zap && cd ~/ && git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
+                os.system("chmod +x ~/zap/zap")
+                if not os.path.isfile("/bin/zap"):
+                    print("Linking Files...")
+                    os.system("sudo ln -s ~/zap/zap /bin/")
+                print("Successfully Updated")
+            elif platform == "android":
+                print("Updating For Platform ==> "+ platform)
+                os.system("rm -rf /system/zap && cd /system/ && git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
+                print("Successfully Updated")
         elif usr_input == "2":
             os.system("sudo rm -rf ~/zap/assets/*.md")
             time.sleep(1)

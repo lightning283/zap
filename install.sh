@@ -21,6 +21,8 @@ echo "Git Taken From Termux"
 mkdir /bin/
 export PATH="/bin/:$PATH"
 cp -r ../zap /system/
+cp ../zap/zap /system/bin/
+ln -s /system/zap/zap to /bin/
 ###############################################################################
 echo "Android Detected,Downloading Git"
 if [[ -f /data/data/com.termux.tar.gz ]]

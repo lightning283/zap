@@ -11,6 +11,7 @@ echo "Removing Home"
 rm -rf /system/zap
 echo "Removing Bin"
 rm -rf /bin
+rm -rf /system/bin/zap
 echo "Removing Python"
 rm -rf /system/lib/python3.8
 rm -rf /data/pylib
