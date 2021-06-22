@@ -14,7 +14,9 @@ try:
         if usr_input == "1":
             os.system("rm -rf ~/zap && cd ~/ && git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
             os.system("chmod +x ~/zap/zap")
-            os.system("sudo ln -s ~/zap/zap /bin/")
+            if not os.path.isfile("/bin/zap"):
+                print("Linking Files...")
+                os.system("sudo ln -s ~/zap/zap /bin/")
         elif usr_input == "2":
             os.system("sudo rm -rf ~/zap/assets/*.md")
             time.sleep(1)
@@ -56,7 +58,7 @@ try:
     if sys.argv[1] == "-h" or sys.argv[1] == "help":
         os.system("lolcat -a /home/zap/assets/help.md")
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v2.1")
+        print("v2.2")
 #####################################################################
 except IndexError:
     print("Wrong Input Please Try Again.. Or 'zap -h' For Help.")
