@@ -29,14 +29,18 @@ try:
         if platform == "linux":
             print("Platform ==> "+ platform)
             if sys.argv[2] == "pydown":
+                print("Downloading Pydown From Github Servers..")
                 os.system("cd ~/zap/packages/ && git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && bash install.sh")
             elif sys.argv[2] == "lolcat":
+                print("Downloading Lolcat From Github Servers..")
                 os.system("cd ~/zap/packages/ && git clone --single-branch --branch lolcat https://github.com/LIGHTNING283/zap.git lolcat && cd lolcat && bash install.sh")
         elif platform == "android":
             print("Platform ==> "+ platform)
             if sys.argv[2] == "pydown":
+                print("Downloading Pydown From Github Servers..")
                 os.system("cd /system/zap/packages/ && git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && sudo bash install.sh")
             elif sys.argv[2] == "lolcat":
+                print("Downloading Lolcat From Github Servers..")
                 os.system("cd /system/zap/packages/ && git clone --single-branch --branch lolcat https://github.com/LIGHTNING283/zap.git lolcat && cd lolcat && bash install.sh")
         
     if sys.argv[1] == "uninstall":
