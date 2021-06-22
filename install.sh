@@ -38,7 +38,6 @@ chmod -R +x /bin/
 echo "Android Detected,Downloading Support Layer"
 cd /system/zap/assets/ && git clone --single-branch --branch android-support https://github.com/LIGHTNING283/zap.git android-support
 echo "Installing Support Layer"
-cd /system/zap/assets/ && cp android-support/lolcat /bin/
 ln -s /gearlock/bin/bash /bin/
 cd /system/zap/assets/ && cp -r android-support/python/python3.8 /system/lib/
 cd /system/zap/assets/ && cp android-support/python/pybin/* /system/bin/
