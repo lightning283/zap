@@ -29,9 +29,9 @@ from sys import platform
 
 # platform = _get_platform()
 
-if os.path.isfile("/usr/"):
-    f = "linux"
-else:
-    f = "android"
+if os.pardir("/usr/"):
+    p = "linux"
+if not os.pardir("/usr/"):
+    p = "android"
 
-platform = f
+platform = p

@@ -68,11 +68,13 @@ try:
                 os.system("bash /system/zap/packages/lolcat/uninstall.sh")
 #####################################################################
     if sys.argv[1] == "pkgs":
-        os.system("lolcat -a /home/zap/assets/pkgs.md")
+        os.system("cat -a /home/zap/assets/pkgs.md")
     if sys.argv[1] == "-h" or sys.argv[1] == "help":
-        os.system("lolcat -a /home/zap/assets/help.md")
+        os.system("cat -a /home/zap/assets/help.md")
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v2.4")
+        print("v2.5")
+    if sys.argv[1] == "-p":
+        print(platform)
 #####################################################################
 except IndexError:
     print("Wrong Input Please Try Again.. Or 'zap -h' For Help.")
