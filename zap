@@ -49,6 +49,9 @@ try:
             elif sys.argv[2] == "lolcat":
                 print("Downloading Lolcat From Github Servers..")
                 os.system("cd /system/zap/packages/ && git clone --single-branch --branch lolcat https://github.com/LIGHTNING283/zap.git lolcat && cd lolcat && bash install.sh")
+            elif sys.argv[2] == "needed-apks":
+                print("Downloading From Github Servers..")
+                os.system("cd /system/zap/packages/ && git clone --single-branch --branch needed-apks https://github.com/LIGHTNING283/zap.git needed-apks && cd needed-apks && bash install.sh")
         
     if sys.argv[1] == "uninstall":
         if platform == "linux":
