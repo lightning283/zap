@@ -1,14 +1,17 @@
 #!/bin/python
 import os
 import sys
+from assets.textani import animatedtext
 from assets.utils import platform
 
 try:
     if sys.argv[1] == "update":
-        print("""
-        1.Update Zap
-        2.Update MarkDown Files.. (Pkgs and Help)
-        """)
+        # print("""
+        # 1.Update Zap
+        # 2.Update MarkDown Files.. (Pkgs and Help)
+        # """)
+        animatedtext("1.Update Zap \n")
+        animatedtext("2.Update Md-Files (pkgs and help)\n")
         usr_input = input("Enter Choice: ")
         if usr_input == "1":
             if platform == "linux":
