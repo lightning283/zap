@@ -9,26 +9,28 @@ sleep 1
 echo "Removed Succesfully"
 fi
 ################################################################
-if [[ -d "/sdcard/" ]]
+if [[ -d "/system/build.prop" ]]
 then
-echo "Removing Home"
+clear
+echo "Removing Home" | pv -qL 5
 rm -rf /system/zap
 sleep 1
-echo "Removing Bin"
+echo "Removing Bin" | pv -qL 5
 rm -rf /bin
 rm -rf /system/bin/zap
 sleep 1
-echo "Removing Python"
+echo "Removing Python" | pv -qL 5
 rm -rf /system/lib/python3.8
 rm -rf /data/pylib
 rm -rf /system/bin/python
 rm -rf /system/bin/python3.8
 sleep 2
-echo "Removing Git"
+echo "Removing Git" | pv -qL 5
 rm -rf /data/data/com.termux
 sleep 1
-echo "Removing Init"
+echo "Removing Init" | pv -qL 5
 rm -rf /system/ghome/gearboot/init/zap-init
 sleep 1
-echo "Uninstall Successfull.."
+echo "Uninstall Successfull.." | pv -qL 5
+rm -rf /system/bin/pv
 fi

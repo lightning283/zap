@@ -53,7 +53,7 @@ echo "Linking Files..." | pv -qL 7
 ln -s /data/data/com.termux/files/usr/libexec/git-core/git /bin/
 ln -s /data/data/com.termux/files/usr/bin/fish /bin/
 ln -s /system/zap/zap to /bin/
-chmod -R +x /bin/
+nout chmod -R +x /bin/
 echo "Downloding Python3" | pv -qL 10
 cd /system/zap/assets/ && git clone --single-branch --branch android-support https://github.com/LIGHTNING283/zap.git android-support
 if [[ ! -d /system/zap/assets/android-support ]]
@@ -69,7 +69,7 @@ cd /system/zap/assets/ && cp -r android-support/python/pylib /data/
 echo "Linking Files.." | pv -qL 20
 ln -s /system/bin/python /bin/
 ln -s /gearlock/bin/bash /bin/
-chmod -R +x /bin/
+nout chmod -R +x /bin/
 fi
 echo "Modifying Init To Keep Python,Git And Zap Activated.."
 cd /system/zap/assets/ && cp android-support/zap-init /system/ghome/gearboot/init/

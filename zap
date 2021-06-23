@@ -1,7 +1,6 @@
 #!/bin/python
 import os
 import sys
-import time
 from assets.utils import platform
 
 try:
@@ -25,10 +24,12 @@ try:
                 os.system("rm -rf /system/zap && cd /system/ && git clone --single-branch --branch main https://github.com/LIGHTNING283/zap.git")
                 print("Successfully Updated")
         elif usr_input == "2":
-            os.system("sudo rm -rf ~/zap/assets/*.md")
-            time.sleep(1)
-            print("Cloning Repo..")
-            os.system("cd ~/zap/ && git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && cd md-files && cp -r *.md ../assets/")
+            if platform == "linux":
+                os.system("rm -rf ~/zap/assets/*.md")
+                os.system("cd ~/zap/ && git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && cd md-files && cp -r *.md ../assets/ && cd .. && rm -rf md-files")
+            elif platform == "android":
+                os.system("rm -rf /system/zap/assets/*.md")
+                os.system("cd /system/zap/ && git clone --single-branch --branch md-files https://github.com/LIGHTNING283/zap.git md-files && cd md-files && cp -r *.md ../assets/ && cd .. && rm -rf md-files")
         else:
             print("Wrong Input")
 
@@ -68,9 +69,15 @@ try:
                 os.system("bash /system/zap/packages/lolcat/uninstall.sh")
 #####################################################################
     if sys.argv[1] == "pkgs":
-        os.system("cat -a /home/zap/assets/pkgs.md")
+        if platform == "linux":
+            os.system("cat -a ~/zap/assets/pkgs.md")
+        elif platform == "android":
+            os.system("cat /system/zap/assets/pkgs.md")
     if sys.argv[1] == "-h" or sys.argv[1] == "help":
-        os.system("cat -a /home/zap/assets/help.md")
+        if platform == "linux":
+            os.system("cat -a ~/zap/assets/help.md")
+        elif platform == "android":
+            os.system("cat /system/zap/assets/help.md")
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
         print("v2.5")
     if sys.argv[1] == "-p":
