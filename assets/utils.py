@@ -1,7 +1,8 @@
 import os
-if os.path.isdir("/usr/"):
+if os.path.isfile("/bin/pacman") or os.path.isfile("/bin/apt"):
     p = "linux"
-if os.path.isdir("/sdcard/"):
+if os.path.isfile("/system/build.prop"):
     p = "android"
-
+if os.path.isdir("/windows"):
+    p = "windows"
 platform = p
