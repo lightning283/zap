@@ -6,3 +6,6 @@ if os.path.isfile("/system/build.prop"):
 if os.path.isdir("/windows"):
     p = "windows"
 platform = p
+
+import getpass
+user = getpass.getuser()

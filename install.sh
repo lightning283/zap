@@ -5,7 +5,7 @@ echo "Linux Detected,Continuing Linux Installation"
 sleep 2
 clear
 echo "Copying Files."
-cp ../zap ~/
+cp -r ../zap ~/
 chmod +x ~/zap/zap
 echo "Linking File To bin,This May Need Root."
 sleep 2

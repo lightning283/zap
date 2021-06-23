@@ -1,8 +1,8 @@
 #!/bin/python
 import os
 import sys
-from assets.textani import animatedtext
-from assets.utils import platform
+from assets.textani import animatedtext, animatedtextfile
+from assets.modules.utils import platform,user
 
 try:
     if sys.argv[1] == "update":
@@ -73,16 +73,16 @@ try:
 #####################################################################
     if sys.argv[1] == "pkgs":
         if platform == "linux":
-            os.system("cat -a ~/zap/assets/pkgs.md")
+            animatedtextfile(f"/home/{user}/zap/assets/pkgs.md")
         elif platform == "android":
-            os.system("cat /system/zap/assets/pkgs.md")
+            animatedtextfile("/system/zap/assets/pkgs.md")
     if sys.argv[1] == "-h" or sys.argv[1] == "help":
         if platform == "linux":
-            os.system("cat -a ~/zap/assets/help.md")
+            animatedtextfile(f"/home/{user}/zap/assets/help.md")
         elif platform == "android":
-            os.system("cat /system/zap/assets/help.md")
+            animatedtextfile("/system/zap/assets/help.md")
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v2.5")
+        print("v2.6")
     if sys.argv[1] == "-p":
         print(platform)
 #####################################################################
