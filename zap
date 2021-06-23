@@ -82,7 +82,7 @@ try:
         elif platform == "android":
             animatedtextfile("/system/zap/assets/help.md")
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
-        print("v2.6")
+        print("v2.7")
     if sys.argv[1] == "-p":
         print(platform)
 #####################################################################
