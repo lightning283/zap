@@ -5,6 +5,7 @@
 -  zap update (Updates The MarkDown Files And The Whole Package Manager Itself)
 -  zap pkgs (List The Downloadable Applications)
 -  zap -v or zap version (shows version)
+-  zap -p (shows platfrom)
 # Usage
 -  zap + package name
 For Example

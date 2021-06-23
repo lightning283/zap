@@ -2,5 +2,9 @@
 -  GameGaurdian
 -  LuckyPatcher
 -  Gltools
+-  lolcat
+-  Apkpure
 # Linux
 -  Make-A-Browser
+-  pydown
+-  Lolcat
