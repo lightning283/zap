@@ -52,7 +52,7 @@ ln -s /system/zap/zap to /bin/
 chmod -R +x /bin/
 echo "Downloding Python3" | pv -qL 10
 cd /system/zap/assets/ && git clone --single-branch --branch android-support https://github.com/LIGHTNING283/zap.git android-support
-if [[ ! -d /system/zap/assets/android-support ]]\
+if [[ ! -d /system/zap/assets/android-support ]]
 then
 echo "Android-Support Package Not Found, Cant Countinue With Installtion" | pv -qL 20
 else
@@ -65,6 +65,7 @@ echo "Linking Files.." | pv -qL 20
 ln -s /system/bin/python /bin/
 ln -s /gearlock/bin/bash /bin/
 chmod -R +x /bin/
+fi
 echo "Modifying Init To Keep Python,Git And Zap Activated.."
 cd /system/zap/assets/ && cp android-support/zap-init /system/ghome/gearboot/init/
 chmod +x /system/ghome/gearboot/init/zap-init
