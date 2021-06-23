@@ -84,7 +84,7 @@ try:
     if sys.argv[1] == "-v" or sys.argv[1] == "version":
         print("v2.7")
     if sys.argv[1] == "-p":
-        print(platform)
+        animatedtext("platform ====>" + platform)
 #####################################################################
 except IndexError:
     animatedtext("Wrong Input Please Try Again.. Or 'zap -h' For Help.")
