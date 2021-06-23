@@ -26,12 +26,16 @@ echo "Android Detected , Continuing Android Installation."
 clear
 echo "Making Directory For Dep Files" | pv -qL 10
 mkdir /bin/
+echo "Done!"
 echo "Adding /bin/ To Path" | pv -qL 8
 export PATH="/bin/:$PATH"
+echo "Done!!"
 echo "Copying Main Files." | pv -qL 10
 sleep 1
 cp -r ../zap /system/
 cp ../zap/zap /system/bin/
+echo "Done!!"
+sleep 2
 echo "Installing Dependencies"
 echo "1.Git " | pv -qL 4
 echo "2.Python3" | pv -qL 4
@@ -55,6 +59,7 @@ cd /system/zap/assets/ && git clone --single-branch --branch android-support htt
 if [[ ! -d /system/zap/assets/android-support ]]
 then
 echo "Android-Support Package Not Found, Cant Countinue With Installtion" | pv -qL 20
+exit
 else
 echo "Installing Python3" | pv -qL 10
 cd /system/zap/assets/ && cp -r android-support/python/python3.8 /system/lib/
