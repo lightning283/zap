@@ -7,7 +7,7 @@ def animatedtext(text):
             sys.stdout.write(char)
             sys.stdout.flush()
             time.sleep(0.1)
-    animation(message)
+    animation(message + "\n" )
 
 def animatedtextfile(file):
     message = open(file, "r")
@@ -16,4 +16,4 @@ def animatedtextfile(file):
             sys.stdout.write(char)
             sys.stdout.flush()
             time.sleep(0.1)
-    animation(message)
+    animation(message + "\n")
