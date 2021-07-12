@@ -42,12 +42,12 @@ try:
                 animatedtext("Downloading Lolcat From Github Servers..")
                 os.system("cd ~/zap/packages/ && git clone --single-branch --branch lolcat https://github.com/LIGHTNING283/zap.git lolcat && cd lolcat && bash install.sh")
         elif platform == "android":
-            animatedtext("Platform ==> "+ platform)
+            animatedtext("Platform ==> "+ platform + "\n")
             if sys.argv[2] == "pydown":
                 animatedtext("Downloading Pydown From Github Servers..")
                 os.system("cd /system/zap/packages/ && git clone --single-branch --branch linux-pydown https://github.com/LIGHTNING283/zap.git pydown && cd pydown && sudo bash install.sh")
             elif sys.argv[2] == "lolcat":
-                animatedtext("Downloading Lolcat From Github Servers..")
+                animatedtext("Downloading Lolcat From Github Servers.. ")
                 os.system("cd /system/zap/packages/ && git clone --single-branch --branch lolcat https://github.com/LIGHTNING283/zap.git lolcat && cd lolcat && bash install.sh")
             elif sys.argv[2] == "needed-apks":
                 animatedtext("Downloading From Github Servers..")
