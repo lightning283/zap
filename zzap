@@ -1,0 +1,11 @@
+#!/bin/python
+import os
+import sys
+from pygenix.utils import platform
+from pygenix.ani import animatedtext
+pkg  = sys.argv[2]
+if sys.argv[1] == "-i":
+    if platform == "linux" and "linux" in pkg:
+        os.system(f"git clone --single-branch --branch {pkg} https://github.com/LIGHTNING283/zap-packages.git {pkg} && cd {pkg} && sudo bash install.sh")
+    else:
+        animatedtext("Sorry This Platform is not supported..", 0.1)
