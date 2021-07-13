@@ -3,9 +3,23 @@ import os
 import sys
 from pygenix.utils import platform
 from pygenix.ani import animatedtext
-pkg  = sys.argv[2]
+# from assets.textani import Loader
+from test import Loader
+from time import sleep
+try:
+    pkg  = sys.argv[2]
+except IndexError:
+    pass
+
 if sys.argv[1] == "-i":
-    if platform == "linux" and "linux" in pkg:
-        os.system(f"git clone --single-branch --branch {pkg} https://github.com/LIGHTNING283/zap-packages.git {pkg} && cd {pkg} && sudo bash install.sh")
-    else:
-        animatedtext("Sorry This Platform is not supported..", 0.1)
+    with Loader("Cloning repo"):
+        os.system(f"git clone -q --single-branch --branch {pkg} https://github.com/LIGHTNING283/zap-packages.git {pkg} && cd {pkg}")
+    with Loader("Getting root access"):
+        sleep(2)
+        os.system("sudo su")
+    with Loader("Running Install Script"):
+        os.system("bash install.sh && exit")
+
+elif sys.argv[1] == "-u":
+        os.system(f"git clone --single-branch --branch pkgs https://github.com/LIGHTNING283/zap.git pkgs && cd pkgs && rm -rf  {home}/zap/pkgs.txt && cp pkgs.txt {home}/zap/")
+        print("Package update Done..")
