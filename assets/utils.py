@@ -22,7 +22,7 @@ class Loader:
         for c in cycle(self.steps):
             if self.done:
                 break
-            print(f"\r{self.desc} {c}", flush=False, end="\n")
+            print(f"\r{self.desc} {c}", flush=False, end="")
             sleep(self.timeout)
 
     def __enter__(self):
@@ -31,7 +31,7 @@ class Loader:
     def stop(self):
         self.done = True
         cols = get_terminal_size((80, 20)).columns
-        print("\r" + " " * cols, end="\n", flush=False)
+        print("\r" + " " * cols, end="", flush=False)
         print(f"\r{self.end}", flush=False)
 
     def __exit__(self, exc_type, exc_value, tb):

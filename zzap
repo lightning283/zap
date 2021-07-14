@@ -1,6 +1,7 @@
 #!/bin/python
 import os
 import sys
+from git import *
 from pygenix.utils import platform
 from pygenix.ani import animatedtext
 # from assets.textani import Loader
@@ -17,17 +18,30 @@ home = f"/home/{user}/zap"
 if sys.argv[1] == "-i":
     with Loader("Cloning repo"):
         os.system(f"cd {home}/packages/ && git clone -q --single-branch --branch {pkg} https://github.com/LIGHTNING283/zap-packages.git {pkg} && cd {pkg}")
-    os.system("sudo bash install.sh")
+    if os.path.isfile(f"{home}/packages/{pkg}/install.sh"):
+        os.system(f"cd {home}/packages/{pkg}/ && bash install.sh")
+    elif os.path.isfile(f"{home}/packages/{pkg}/install.bat"):
+         os.system(f"cd {home}/packages/{pkg}/ && bash install.bat")
+    else:
+        print("Error: Install Script Not Found..")
     if os.path.isfile(f"{home}/packages/{pkg}/requirements.txt"):
-        with Loader("Installing Dependencies"):
+        with Loader("Resolving Dependencies"):
             os.chdir(f"{home}/packages/{pkg}/")
-            os.system("pip install reqirements.txt")
+            os.system("pip install -qr requirements.txt")
+    else:
+        print("No Dependencies Needed..")
 
 elif sys.argv[1] == "-r":
-    os.system(f"bash {home}/zap/packages/{pkg}/uninstall.sh")
-    shutil.rmtree(f"{home}/packages/{pkg}")
-    
-
+    if os.path.isfile(f"{home}/packages/{pkg}/uninstall.sh"):
+        os.system(f"bash {home}/packages/{pkg}/uninstall.sh")
+        shutil.rmtree(f"{home}/packages/{pkg}")
+    if os.path.isfile(f"{home}/packages/{pkg}/uninstall.bat"):
+        os.system(f"bash {home}/packages/{pkg}/uninstall.bat")
+        shutil.rmtree(f"{home}/packages/{pkg}")
 elif sys.argv[1] == "-u":
-        os.system(f"git clone --single-branch --branch pkgs https://github.com/LIGHTNING283/zap.git pkgs && cd pkgs && rm -rf  {home}/zap/pkgs.txt && cp pkgs.txt {home}/zap/")
-        print("Package update Done..")
+    with Loader("Cloning Repo"):
+        Repo.clone_from("https://github.com/LIGHTNING283/zap.git", f"{home}/pkgs", single_branch=True, b='pkgs')
+    os.chdir(home)
+    os.remove("pkgs.txt")
+    shutil.copyfile("pkgs/pkgs.txt", f"{home}/")
+    print("Package update Done..")
