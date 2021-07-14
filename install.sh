@@ -2,16 +2,15 @@ if [[ -d /usr/ ]]
 then
 clear
 echo "Linux Detected,Continuing Linux Installation"
-sleep 2
 clear
 echo "Copying Files."
 cp -r ../zap ~/
 chmod +x ~/zap/zap
+clear
 echo "Linking File To bin,This May Need Root."
-sleep 2
-sudo ln -s ~/zap/zap /bin/
+sudo ln -s ~/zap/zzap /bin/
+clear
 echo "Done,Install Finished.."
-sleep 1
 clear
 echo "Here Is The Home Dir"
 ls

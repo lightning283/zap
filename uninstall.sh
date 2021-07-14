@@ -2,10 +2,9 @@ if [[ -d "/usr/" ]]
 then
 echo "Removing File In /bin/"
 sudo rm -rf /bin/zap
-sleep 1
+sudo rm -rf /bin/zzap
 echo "Removing Zap Home"
 rm -rf ~/zap
-sleep 1
 echo "Removed Succesfully"
 fi
 ################################################################
