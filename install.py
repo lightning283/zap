@@ -32,7 +32,7 @@ try:
         with Loader("Installing Dependencies"):
             sleep(2)
         with Loader("Downloading Git For Android.."):
-            os.system("cd /data/data/ && axel -q https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz")
+            os.system("cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz")
         with Loader("Installing Git For Android.."):
             os.system("cd /data/data/ && tar -xzf com.termux.tar.gz")
         with Loader("Linking Files"):
