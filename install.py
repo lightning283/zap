@@ -29,7 +29,7 @@ try:
             os.system(f"""set PATH="%PATH%;{home}\zap\"""")
     elif platform == "android":
         os.system("""
-cp assets/pv /system/bin/
+cp zap_home/assets/pv /system/bin/
 clear
 figlet -c Zap | pv -qL 50
 echo "Android Detected , Continuing Android Installation."
@@ -42,8 +42,8 @@ export PATH="/bin/:$PATH"
 echo "Done!!"
 echo "Copying Main Files." | pv -qL 10
 sleep 1
-cp -r ../zap /system/
-cp ../zap/zap /system/bin/
+cp -r zap_home /system/zap
+cp zap_home/zap /system/bin/
 echo "Done!!"
 sleep 2
 echo "Installing Dependencies"
