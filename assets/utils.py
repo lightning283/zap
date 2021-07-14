@@ -3,7 +3,6 @@ from shutil import get_terminal_size
 from threading import Thread
 from time import sleep
 
-
 class Loader:
     def __init__(self, desc="Loading...", end="Done!", timeout=0.1):
         self.desc = desc
@@ -36,3 +35,23 @@ class Loader:
 
     def __exit__(self, exc_type, exc_value, tb):
         self.stop()
+
+
+import os
+import getpass
+
+if os.path.isfile("/bin/pacman") or os.path.isfile("/bin/apt"):
+    p = "linux"
+if os.path.isfile("/system/build.prop"):
+    p = "android"
+if os.path.isdir("/windows"):
+    p = "windows"
+if os.path.isfile("/bin/yay"):
+    s = "arch"
+if os.path.isfile("/bin/apt"):
+    s = "debian"
+platform = p
+splatform = s #specific Platform
+
+from getpass import getuser
+user = getuser()
