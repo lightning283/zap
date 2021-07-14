@@ -7,77 +7,35 @@ home = str(Path.home())
 
 try:
     if platform == "linux":
-        with Loader("Copying Files"):
-            sleep(1)
+        with Loader("Clearning Old Install Files"):
+            sleep(2)
             try:
                 shutil.rmtree(f"{home}/zap")
                 os.remove("/bin/zap")
             except FileNotFoundError:
                 pass
+        with Loader("Copying New Files.."):
+            sleep(2)
             shutil.copytree(r"zap_home/" , rf"{home}/zap")
             shutil.copy2("zap_home/zap", "/bin/")
+        with Loader("Making Binary Executable"):
+            sleep(1)
             os.system("sudo chmod +x /bin/zap")
     elif platform == "android":
-        os.system("""
-cp zap_home/assets/pv /system/bin/
-clear
-figlet -c Zap | pv -qL 50
-echo "Android Detected , Continuing Android Installation."
-clear
-echo "Making Directory For Dep Files" | pv -qL 10
-mkdir /bin/
-echo "Done!"
-echo "Adding /bin/ To Path" | pv -qL 8
-export PATH="/bin/:$PATH"
-echo "Done!!"
-echo "Copying Main Files." | pv -qL 10
-sleep 1
-cp -r zap_home /system/zap
-cp zap_home/zap /system/bin/
-echo "Done!!"
-sleep 2
-echo "Installing Dependencies"
-echo "1.Git " | pv -qL 4
-echo "2.Python3" | pv -qL 4
-if [[ -f /data/data/com.termux.tar.gz ]]
-then
-echo "Found Cached com.termux.tar.gz , Installing It Now" | pv -qL 14
-clear
-cd /data/data/ && tar -xzvf com.termux.tar.gz
-else
-echo "Downloading And Installing GIT" | pv -qL 15
-cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz?dl=1
-cd /data/data/ && tar -xzvf com.termux.tar.gz
-fi
-echo "Linking Files..." | pv -qL 7
-ln -s /data/data/com.termux/files/usr/libexec/git-core/git /bin/
-ln -s /data/data/com.termux/files/usr/bin/fish /bin/
-ln -s /system/zap/zap to /bin/
-nout chmod -R +x /bin/
-echo "Downloding Python3" | pv -qL 10
-cd /system/zap/assets/ && git clone --single-branch --branch android-support https://github.com/LIGHTNING283/zap.git android-support
-if [[ ! -d /system/zap/assets/android-support ]]
-then
-echo "Android-Support Package Not Found, Cant Countinue With Installtion" | pv -qL 20
-exit
-else
-echo "Installing Python3" | pv -qL 10
-cd /system/zap/assets/ && cp -r android-support/python/python3.8 /system/lib/
-cd /system/zap/assets/ && cp android-support/python/pybin/* /system/bin/
-cd /system/zap/assets/ && cp android-support/python/pylib/* /gearlock/lib/
-cd /system/zap/assets/ && cp -r android-support/python/pylib /data/
-echo "Linking Files.." | pv -qL 20
-ln -s /system/bin/python /bin/
-ln -s /gearlock/bin/bash /bin/
-nout chmod -R +x /bin/
-fi
-echo "Modifying Init To Keep Python,Git And Zap Activated.."
-cd /system/zap/assets/ && cp android-support/zap-init /system/ghome/gearboot/init/
-chmod +x /system/ghome/gearboot/init/zap-init
-figlet -c "Done" | pv -qL 50
-fish
-fi          
-        """)
+        with Loader("Making Dir For Dep Files"):
+            os.system("mkdir /bin/")
+        with Loader("Adding /bin/ To Path"):
+            os.system("export PATH='/bin/:$PATH'")
+        with Loader("Copying Main Files."):
+            os.system("cp -r ../zap /system/")
+            os.system("cp ../zap/zap /system/bin/")
+        with Loader("Installing Dependencies"):
+            sleep(2)
+        with Loader("Downloading Git For Android.."):
+            os.system("cd /data/data/ && axel -q https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz")
+        with Loader("Installing Git For Android.."):
+            os.system("cd /data/data/ && tar -xzf com.termux.tar.gz")
+        with Loader("Linking Files"):
+            os.system("ln -s /data/data/com.termux/files/usr/libexec/git-core/git /bin/ && ln -s /data/data/com.termux/files/usr/bin/fish /bin/ && nout ln -s /system/zap/zap /bin/ && nout chmod -R +x /bin/")
 except PermissionError:
     print("Linux --> Run As Root")
-    print("Windows --> Run As A Administrator")

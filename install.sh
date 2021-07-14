@@ -45,7 +45,7 @@ clear
 cd /data/data/ && tar -xzvf com.termux.tar.gz
 else
 echo "Downloading And Installing GIT" | pv -qL 15
-cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz?dl=1
+cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz
 cd /data/data/ && tar -xzvf com.termux.tar.gz
 fi
 echo "Linking Files..." | pv -qL 7
