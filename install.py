@@ -17,16 +17,6 @@ try:
             shutil.copytree(r"zap_home/" , rf"{home}/zap")
             shutil.copy2("zap_home/zap", "/bin/")
             os.system("sudo chmod +x /bin/zap")
-
-    elif platform == "win":
-        with Loader("Copying Files"):
-            sleep(1)
-            try:
-                shutil.rmtree(f"{home}/zap")
-            except FileNotFoundError:
-                pass
-            shutil.copytree(r"zap_home/" , rf"{home}/zap")
-            os.system(f"""set PATH="%PATH%;{home}\zap\"""")
     elif platform == "android":
         os.system("""
 cp zap_home/assets/pv /system/bin/
