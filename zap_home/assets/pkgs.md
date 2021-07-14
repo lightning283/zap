@@ -1,4 +1,0 @@
-# Android
--  GameGaurdian
--  LuckyPatcher
--  Gltools

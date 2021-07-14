@@ -22,10 +22,9 @@ try:
                 pass
             Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/packages/{pkg}", single_branch=True, b=pkg)
             os.chdir(f"{home}/packages/{pkg}/")
+
         if os.path.isfile(f"{home}/packages/{pkg}/install.sh"):
             os.system(f"cd {home}/packages/{pkg}/ && bash install.sh")
-        elif os.path.isfile(f"{home}/packages/{pkg}/install.bat"):
-            os.system(f"cd {home}/packages/{pkg}/ && bash install.bat")
         else:
             print("Error: Install Script Not Found..")
         if os.path.isfile(f"{home}/packages/{pkg}/requirements.txt"):
@@ -39,23 +38,20 @@ try:
         if os.path.isfile(f"{home}/packages/{pkg}/uninstall.sh"):
             os.system(f"bash {home}/packages/{pkg}/uninstall.sh")
             shutil.rmtree(f"{home}/packages/{pkg}")
-        if os.path.isfile(f"{home}/packages/{pkg}/uninstall.bat"):
-            os.system(f"bash {home}/packages/{pkg}/uninstall.bat")
-            shutil.rmtree(f"{home}/packages/{pkg}")
     elif sys.argv[1] == "-u":
         with Loader("Cloning Repo"):
             Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/pkgs", single_branch=True, b='pkgs')
         os.chdir(home)
         try:
-            os.remove("pkgs.txt")
+            os.remove("pkgs.md")
         except FileNotFoundError:
             pass
-        shutil.copy2( rf"{home}/pkgs/pkgs.txt", rf"{home}/")
+        shutil.copy2( rf"{home}/pkgs/pkgs.md", rf"{home}/")
         shutil.rmtree(f"{home}/pkgs")
         print("Package update Done..")
 
     elif sys.argv[1] == "-s":
-        with open(f'{home}/pkgs.txt', 'r') as searchfile:
+        with open(f'{home}/pkgs.md', 'r') as searchfile:
             for line in searchfile:
                 if pkg in line:
                     print (line , end="")
