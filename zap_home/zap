@@ -12,7 +12,10 @@ try:
     pkg  = sys.argv[2]
 except IndexError:
     pass
-home = f"/home/{user}/zap"
+if platform == "linux":
+    home = f"/home/{user}/zap"
+elif platform == "android":
+    home = "/system/zap"
 try:
     if sys.argv[1] == "-i":
         with Loader("Cloning repo"):
