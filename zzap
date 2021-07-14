@@ -40,7 +40,7 @@ elif sys.argv[1] == "-r":
         shutil.rmtree(f"{home}/packages/{pkg}")
 elif sys.argv[1] == "-u":
     with Loader("Cloning Repo"):
-        Repo.clone_from("https://github.com/LIGHTNING283/zap.git", f"{home}/pkgs", single_branch=True, b='pkgs')
+        Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/pkgs", single_branch=True, b='pkgs')
     os.chdir(home)
     os.remove("pkgs.txt")
     shutil.copyfile("pkgs/pkgs.txt", f"{home}/")
