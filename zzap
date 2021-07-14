@@ -42,6 +42,10 @@ elif sys.argv[1] == "-u":
     with Loader("Cloning Repo"):
         Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/pkgs", single_branch=True, b='pkgs')
     os.chdir(home)
-    os.remove("pkgs.txt")
+    try:
+        os.remove("pkgs.txt")
+    except FileNotFoundError:
+        pass
     shutil.copyfile("pkgs/pkgs.txt", f"{home}/")
+    shutil.rmtree(f"{home}/pkgs")
     print("Package update Done..")
