@@ -34,7 +34,7 @@ try:
         with Loader("Downloading Git For Android.."):
             os.system("cd /data/data/ && axel https://dl.dropbox.com/s/hd4ydz7jf4otbj5/com.termux.tar.gz")
         with Loader("Installing Git For Android.."):
-            os.system("cd /data/data/ && tar -xzf com.termux.tar.gz")
+            os.system("cd /data/data/ && tar -xzvf com.termux.tar.gz")
         with Loader("Linking Files"):
             os.system("ln -s /data/data/com.termux/files/usr/libexec/git-core/git /bin/ && ln -s /data/data/com.termux/files/usr/bin/fish /bin/ && nout ln -s /system/zap/zap /bin/ && nout chmod -R +x /bin/")
 except PermissionError:
