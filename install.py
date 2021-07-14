@@ -27,8 +27,8 @@ try:
         with Loader("Adding /bin/ To Path"):
             os.system("export PATH='/bin/:$PATH'")
         with Loader("Copying Main Files."):
-            os.system("cp -r ../zap /system/")
-            os.system("cp ../zap/zap /system/bin/")
+            os.system("cp -r zap_home /system/zap")
+            os.system("cp zap_home/zap /system/bin/")
         with Loader("Installing Dependencies"):
             sleep(2)
         with Loader("Downloading Git For Android.."):

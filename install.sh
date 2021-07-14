@@ -1,14 +1,15 @@
+#!/bin/bash
 if [[ -d /usr/ ]]
 then
 clear
 echo "Linux Detected,Continuing Linux Installation"
 clear
 echo "Copying Files."
-cp -r ../zap ~/
+cp -r zap_home ~/zap
 chmod +x ~/zap/zap
 clear
 echo "Linking File To bin,This May Need Root."
-sudo ln -s ~/zap/zzap /bin/
+sudo ln -s ~/zap/zap /bin/
 clear
 echo "Done,Install Finished.."
 clear
@@ -18,7 +19,7 @@ fi
 
 if [[ -f /system/build.prop ]]
 then
-cp assets/pv /system/bin/
+cp zap_home/assets/pv /system/bin/
 clear
 figlet -c Zap | pv -qL 50
 echo "Android Detected , Continuing Android Installation."
@@ -31,8 +32,8 @@ export PATH="/bin/:$PATH"
 echo "Done!!"
 echo "Copying Main Files." | pv -qL 10
 sleep 1
-cp -r ../zap /system/
-cp ../zap/zap /system/bin/
+cp -r zap_home/zap /system/
+cp zap_home/zap /system/bin/
 echo "Done!!"
 sleep 2
 echo "Installing Dependencies"
