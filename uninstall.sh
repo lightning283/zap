@@ -8,7 +8,7 @@ rm -rf ~/zap
 echo "Removed Succesfully"
 fi
 ################################################################
-if [[ -d "/system/build.prop" ]]
+if [[ -f "/system/build.prop" ]]
 then
 clear
 echo "Removing Home" | pv -qL 5
