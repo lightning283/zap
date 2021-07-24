@@ -32,7 +32,7 @@ export PATH="/bin/:$PATH"
 echo "Done!!"
 echo "Copying Main Files." | pv -qL 10
 sleep 1
-cp -r zap_home/zap /system/
+cp -r zap_home/ /system/zap
 cp zap_home/zap /system/bin/
 echo "Done!!"
 sleep 2
