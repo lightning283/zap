@@ -1,10 +1,6 @@
 #!/bin/python
 import os
 import sys
-try:
-    from git import *
-except ImportError:
-    print("Install git..")
 from assets.utils import Loader , platform , user
 from time import sleep
 import shutil
