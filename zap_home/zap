@@ -25,6 +25,7 @@ try:
             os.chdir(f"{home}/packages/{pkg}/")
         except FileNotFoundError:
             print("\nPackage not found , try searching the package name again with zap -s or update pkgs with zap -u..")
+            exit()
         with Loader("Cheking Install Scripts"):
             sleep(1)
             if os.path.isfile(f"{home}/packages/{pkg}/install.sh"):
