@@ -3,16 +3,6 @@ echo "Placing Python Deps"
 nout cp /system/zap/assets/android-support/python/pylib/* /gearlock/bin/
 echo "Done!"
 cp /system/zap/assets/pv /system/bin/
-nout mkdir /bin/
-export PATH="/bin/:$PATH"
-echo "Linking Files"
-nout ln -s /data/data/com.termux/files/usr/libexec/git-core/git /bin/
-nout ln -s /data/data/com.termux/files/usr/bin/fish /bin/
-nout ln -s /system/bin/python /bin/
-nout ln -s /gearlock/bin/bash /bin/
-nout ln -s /system/bin/pv /bin/
-nout chmod -R +x /bin/
-
 if [[ ! -d "/data/data/com.termux/" ]]
 then
 echo "Unzipping Deps"
