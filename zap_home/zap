@@ -67,6 +67,14 @@ try:
             for line in searchfile:
                 if pkg in line:
                     print (line , end="")
+    elif sys.argv[1] == "-h":
+        def clear():
+            os.system("clear")
+        clear()
+        if os.path.isfile("/bin/lolcat") or os.path.isfile("/system/bin/lolcat"):
+            os.system(f"cat {home}/assets/help.md | lolcat")
+        else:
+            os.system(f"cat {home}/assets/help.md")
     else:
         print("Invalid Option , try again or zap -h for help..")
 except IndexError:
