@@ -14,21 +14,27 @@ elif platform == "android":
     home = "/system/zap"
 try:
     if sys.argv[1] == "-i":
-        with Loader("Cloning repo"):
-            try:
-                shutil.rmtree(f"{home}/packages/{pkg}")
-            except FileNotFoundError:
-                pass
-            # Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/packages/{pkg}", single_branch=True, b=pkg)
+        try:
+            shutil.rmtree(f"{home}/packages/{pkg}")
+        except FileNotFoundError:
+            pass
+        # Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/packages/{pkg}", single_branch=True, b=pkg)
+        with Loader("Cloning repo.."):
             os.system(f"cd {home}/packages/ && git clone --single-branch --branch {pkg} https://github.com/LIGHTNING283/zap-packages.git {pkg}")
-            try:
-                os.chdir(f"{home}/packages/{pkg}/")
-            except FileNotFoundError:
-                print("\nPackage not found , try searching the package name again with zap -s or update pkgs with zap -u..")
+        try:
+            os.chdir(f"{home}/packages/{pkg}/")
+        except FileNotFoundError:
+            print("\nPackage not found , try searching the package name again with zap -s or update pkgs with zap -u..")
+        with Loader("Cheking Install Scripts"):
+            sleep(1)
             if os.path.isfile(f"{home}/packages/{pkg}/install.sh"):
-                os.system(f"cd {home}/packages/{pkg}/ && bash install.sh")
+                with Loader("Script Found , Installing.."):
+                    sleep(1)
+                    os.system(f"cd {home}/packages/{pkg}/ && bash install.sh")
             else:
                 print("Error: Install Script Not Found..")
+        with Loader("Checking Deps.."):
+            sleep(2)
             if os.path.isfile(f"{home}/packages/{pkg}/requirements.txt"):
                 with Loader("Resolving Dependencies"):
                     os.chdir(f"{home}/packages/{pkg}/")
