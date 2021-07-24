@@ -18,7 +18,6 @@ try:
             shutil.rmtree(f"{home}/packages/{pkg}")
         except FileNotFoundError:
             pass
-        # Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/packages/{pkg}", single_branch=True, b=pkg)
         with Loader("Cloning repo.."):
             os.system(f"cd {home}/packages/ && git clone --single-branch --branch {pkg} https://github.com/LIGHTNING283/zap-packages.git {pkg}")
         try:
@@ -52,7 +51,6 @@ try:
     elif sys.argv[1] == "-u":
         with Loader("Cloning Repo"):
             os.system(f"cd {home}/ && git clone --single-branch --branch pkgs https://github.com/LIGHTNING283/zap-packages.git pkgs")
-            # Repo.clone_from("https://github.com/LIGHTNING283/zap-packages.git", f"{home}/pkgs", single_branch=True, b='pkgs')
         os.chdir(home)
         try:
             os.remove("pkgs.md")
