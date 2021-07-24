@@ -67,5 +67,7 @@ try:
             for line in searchfile:
                 if pkg in line:
                     print (line , end="")
-except PermissionError:
-    print("Run As Root Or As A Admin..")
+    else:
+        print("Invalid Option , try again or zap -h for help..")
+except IndexError:
+    print("Its a cli util , please give a valid arg.. or zap -h for help")
